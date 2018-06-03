@@ -484,6 +484,7 @@ public class Parser {
             TermA();
         
         }
+        //testando
         
         else {
                 erroSintatico("Esperado \"+ , - , * , / , == , > , >= , < , <= , != , or , ; , ) , }\", encontrado " + token.getLexema());
