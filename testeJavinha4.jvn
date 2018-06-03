@@ -1,0 +1,14 @@
+public class TesteJavinha4
+	integer var_1; 
+	integer var_2; // erro corrigido: , -> ;
+	integer var_3;
+	double var_4; // erro corrigido: @ -> _
+
+	var_4 = 12.1; // erro corrigido: numero depois do ponto 
+	var_1 = var_2 ! var_3; // erro corrigido: ! -> !=
+
+	/* erro corrigido: 
+		fechar a string
+	*/ 
+	SystemOutDispln("string com erro");
+end

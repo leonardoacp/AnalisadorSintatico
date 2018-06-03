@@ -1,0 +1,11 @@
+public class TesteJavinha3
+   integer var_1; 
+   integer var_2; 
+   integer var_3;
+   double var@4;
+
+   var_4 = 12.;
+   var_1 = var_2 ! var_3;
+
+   SystemOutDispln("string com erro);
+end
