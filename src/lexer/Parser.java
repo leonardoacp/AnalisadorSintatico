@@ -152,14 +152,6 @@ public class Parser {
            eat(Tag.SMB_COM);
            Id_list();       
        }
-       else if (token.getClasse() == Tag.SMB_SEM){
-          //eat(Tag.SMB_SEM);       
-       }
-       else{
-          erroSintatico("Esperado \" , , ; \", encontrado " + token.getLexema());
-	  System.exit(1);
-       } 
-
    }
    
    
@@ -472,7 +464,7 @@ public class Parser {
         } 
 
         
-        }
+   }
    
    
    public void Term(){
@@ -495,7 +487,7 @@ public class Parser {
         
         else {
                 erroSintatico("Esperado \"+ , - , * , / , == , > , >= , < , <= , != , or , ; , ) , }\", encontrado " + token.getLexema());
-			System.exit(1);
+		System.exit(1);
         }
     }
    
@@ -609,7 +601,7 @@ public class Parser {
 		System.exit(1);
        }
 
-	}
+   }
        
    
    public void Constant(){
