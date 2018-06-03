@@ -449,8 +449,8 @@ public class Parser {
    
    
    public void Simple_exprA(){
-        if (token.getClasse() == Tag.SMB_SEM || token.getClasse() == Tag.SMB_CBC || token.getClasse() == Tag.SMB_CPA ||
-            token.getClasse() == Tag.OP_EQ || token.getClasse() == Tag.OP_GT || token.getClasse() == Tag.OP_GE ||
+        if ( /* token.getClasse() == Tag.SMB_SEM || */token.getClasse() == Tag.SMB_CBC ||/* token.getClasse() == Tag.SMB_CPA || */
+            /*token.getClasse() == Tag.OP_EQ ||*/ token.getClasse() == Tag.OP_GT || token.getClasse() == Tag.OP_GE ||
             token.getClasse() == Tag.OP_LT || token.getClasse() == Tag.OP_LE || token.getClasse() == Tag.OP_NE ||
             token.getClasse() == Tag.OP_AD || token.getClasse() == Tag.OP_MIN || token.getClasse() == Tag.KW_OR){
             Addop();
@@ -459,8 +459,8 @@ public class Parser {
         
         }else{
         
-                erroSintatico("Esperado \"+ , -  , == , > , >= , < , <= , != , or , ; , } , )\", encontrado " + token.getLexema());
-                System.exit(1);
+             //   erroSintatico("Esperado \"+ , -  , == , > , >= , < , <= , != , or , ; , } , )\", encontrado " + token.getLexema());
+              //  System.exit(1);
         } 
 
         
@@ -475,8 +475,8 @@ public class Parser {
    
    public void TermA(){
         if (token.getClasse() == Tag.OP_MULT || token.getClasse() == Tag.OP_DIV || token.getClasse() == Tag.KW_AND || 
-            token.getClasse() == Tag.SMB_SEM || token.getClasse() == Tag.SMB_CBC || token.getClasse() == Tag.SMB_CPA ||
-            token.getClasse() == Tag.OP_EQ || token.getClasse() == Tag.OP_GT || token.getClasse() == Tag.OP_GE ||
+           /* token.getClasse() == Tag.SMB_SEM || */token.getClasse() == Tag.SMB_CBC ||/* token.getClasse() == Tag.SMB_CPA || */
+            /*token.getClasse() == Tag.OP_EQ ||*/ token.getClasse() == Tag.OP_GT || token.getClasse() == Tag.OP_GE ||
             token.getClasse() == Tag.OP_LT || token.getClasse() == Tag.OP_LE || token.getClasse() == Tag.OP_NE ||
             token.getClasse() == Tag.OP_AD || token.getClasse() == Tag.OP_MIN || token.getClasse() == Tag.KW_OR){
             Mulop();
@@ -484,11 +484,11 @@ public class Parser {
             TermA();
         
         }
-        //testando
+  
         
         else {
-                erroSintatico("Esperado \"+ , - , * , / , == , > , >= , < , <= , != , or , ; , ) , }\", encontrado " + token.getLexema());
-		System.exit(1);
+               // erroSintatico("Esperado \"+ , - , * , / , == , > , >= , < , <= , != , or , ; , ) , }\", encontrado " + token.getLexema());
+	//	System.exit(1);
         }
     }
    
