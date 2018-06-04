@@ -369,7 +369,8 @@ public class LexemaMain {
                         if (token == null) {
                             return new Token(Tag.ID, lexema.toString(), n_line, n_column);
                         }
-                        return token;
+                        
+                         return new Token(token.getClasse(), lexema.toString(), n_line, n_column);
                     }
                     break;
                                

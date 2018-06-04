@@ -9,8 +9,7 @@ public class Parser {
 
     public Parser(LexemaMain lexer) {
         this.lexer = lexer;
-        token = lexer.proxToken(); // Leitura inicial obrigatoria do primeiro simbolo
-        System.out.println("[DEBUG]" + token.toString());
+        advance();
     }
 
     // Fecha os arquivos de entrada e de tokens
@@ -27,13 +26,25 @@ public class Parser {
     
     public void advance() {
     	token = lexer.proxToken();
-    	System.out.println("[DEBUG]" + token.toString());
+
+        System.out.println("[LEXICO]: " + token.toString() + "\t Linha: " + token.getLinha() + "\t Coluna: " + token.getColuna());
+        System.out.println("[SINTÁTICO]: " + token.toString() + "\t Linha: " + token.getLinha() + "\t Coluna: " + token.getColuna());
+        System.out.println("");
     }
     
 	// verifica token esperado t
    public boolean eat(Tag t) {
 		if(token.getClasse() == t) {
+                            
+                    
 			advance();
+      
+                        
+                        if(token.getClasse() == Tag.EOF){
+                            
+                            System.exit(0);
+                        }
+                        
 			return true;
 		} 
 		else {
@@ -89,7 +100,7 @@ public class Parser {
    
    public void Decl_list(){
        
-                   if (token.getClasse() == Tag.SMB_OBC){
+                   if (token.getClasse() == Tag.SMB_OBC || token.getClasse() ==  Tag.SMB_CBC){
                      return;
                    }
        
@@ -157,7 +168,18 @@ public class Parser {
    
    public void Stmt_list(){
        
+       
+
+      if (token.getClasse() == Tag.SMB_OBC || token.getClasse() ==  Tag.SMB_CBC){
+            return;
+          }
+       
        Stmt();
+       
+       
+         if (token.getClasse() == Tag.SMB_OBC || token.getClasse() ==  Tag.SMB_CBC){
+            return;
+          }
        
        if (token.getClasse() == Tag.SMB_SEM){
              eat(Tag.SMB_SEM);
@@ -283,7 +305,7 @@ public class Parser {
    
    public void If_stmtA(){
         if (token.getClasse() == Tag.KW_ELSE || token.getClasse() == Tag.SMB_SEM || token.getClasse() == Tag.SMB_CBC){
-            eat(Tag.KW_ELSE);
+            eat(token.getClasse());
             
             
              if (token.getClasse() == Tag.SMB_OBC){
